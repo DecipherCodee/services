@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useHeaderStore } from "./utils";
 
-const useHeader = () => {
+export const useHeader = () => {
   const { title, getService } = useHeaderStore();
 
   return (
