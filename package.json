@@ -1,0 +1,49 @@
+{
+  "name": "@deciphercode/services",
+  "version": "1.0.8",
+  "author": {
+    "name": "DecipherCode",
+    "email": "DecipherCode@protonmail.com"
+  },
+  "private": true,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": "git@github.com:DecipherCodee/services.git",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev -p 8900",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint --ext .js,.jsx pages/",
+    "test": "jest"
+  },
+  "dependencies": {
+    "next": "9.4.4",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "sass": "^1.26.9"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "@types/jest": "^26.0.7",
+    "babel-jest": "^26.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.19.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.5",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "jest": "^26.1.0",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.6"
+  }
+}
