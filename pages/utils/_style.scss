@@ -4,32 +4,30 @@
   @import "./styles/variables";
   @import "./styles/mixins";
 
-  #home-page {
+  #services-page {
     padding: 0 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     .services {
-      .grid {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        max-width: 800px;
-        margin: {
-          top: 2rem;
-          bottom: 1rem;
-        }
-        @include set-layout($mm-max-width) {
-          flex-direction: column;
-        }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 800px;
+      margin: {
+        top: 2rem;
+        bottom: 1rem;
+      }
+      @include set-layout($mm-max-width) {
+        flex-direction: column;
+      }
 
-        .card {
-          @include card-styles();
-          flex-basis: 45%;
-          flex-direction: column;
-        }
+      .card {
+        @include card-styles();
+        flex-basis: 45%;
+        flex-direction: column;
       }
     }
   }

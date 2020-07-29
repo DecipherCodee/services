@@ -1,17 +1,15 @@
 import { useServicesStore } from "./utils";
 
-export const useHome = () => {
+export const useServices = () => {
   const { getServices } = useServicesStore();
 
   return (
-    <main id="home-page">
+    <main id="services-page">
       <>
-        <section className="services">
-          <ul className="grid">{getServices}</ul>
-        </section>
+        <ul className="services">{getServices}</ul>
       </>
     </main>
   );
 };
 
-export default useHome;
+export default useServices;
