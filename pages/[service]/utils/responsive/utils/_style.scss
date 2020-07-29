@@ -1,0 +1,49 @@
+#responsive {
+  display: flex;
+  margin: 0 10rem;
+  flex-direction: column;
+
+  h4 {
+    width: 100%;
+    font-size: 1.8rem;
+    line-height: 4rem;
+    margin: {
+      top: 1.8rem;
+      bottom: 0.8rem;
+    }
+    border-bottom: 0.1rem solid;
+  }
+
+  .platforms,
+  .types,
+  .strategies {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .strategies {
+    justify-content: center;
+
+    .strategy {
+      @include card-styles;
+      width: 30%;
+    }
+  }
+
+  .types {
+    .type {
+      @include card-styles;
+    }
+  }
+
+  @mixin platform-styles {
+    @include card-styles;
+    width: 46.5%;
+    justify-content: center;
+  }
+
+  @import "./mobile/utils/styles";
+  @import "./tablet/utils/style";
+  @import "./desktop/utils/style";
+}
