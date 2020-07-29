@@ -1,4 +1,4 @@
-const useFooter = () => {
+export const useFooter = () => {
   return (
     <footer id="footer">
       Powered by
