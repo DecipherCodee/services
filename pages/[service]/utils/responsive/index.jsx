@@ -1,6 +1,6 @@
 import { Mobile, Tablet, Desktop } from "./utils";
 
-const useResponsive = () => {
+export const useResponsive = () => {
   return (
     <main id="responsive">
       <>
