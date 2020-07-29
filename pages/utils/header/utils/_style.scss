@@ -1,0 +1,31 @@
+#header {
+  .title {
+    cursor: pointer;
+    margin: 2rem;
+    line-height: 1.15;
+    font-size: 4rem;
+    @include set-layout($sm-max-width) {
+      font-size: 3rem;
+    }
+    @include set-layout($xsm-max-width) {
+      font-size: 2rem;
+    }
+    color: $primary-color;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+
+  .title,
+  .sub-title {
+    text-align: center;
+  }
+
+  .sub-title {
+    line-height: 1.5;
+    font-size: 1.5rem;
+  }
+}
