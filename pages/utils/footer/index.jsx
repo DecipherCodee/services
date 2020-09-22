@@ -1,9 +1,13 @@
+import { useFooterStore } from "./utils";
+
 export const useFooter = () => {
+  const { styles } = useFooterStore();
+
   return (
-    <footer id="footer">
+    <footer className={styles.footer}>
       Powered by
       <svg
-        className="logo"
+        className={styles.logo}
         fill="none"
         viewBox="0 0 283 64"
         xmlns="http://www.w3.org/2000/svg"

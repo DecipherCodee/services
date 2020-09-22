@@ -3,7 +3,7 @@ import { useServiceStore } from "./utils";
 export const useService = () => {
   const { getService } = useServiceStore();
 
-  return <main id="service">{getService}</main>;
+  return <>{getService}</>;
 };
 
 export default useService;

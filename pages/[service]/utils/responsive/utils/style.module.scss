@@ -1,4 +1,7 @@
-#responsive {
+@import "styles/variables";
+@import "styles/mixins";
+
+.responsive {
   display: flex;
   margin: 0 10rem;
   flex-direction: column;
@@ -13,7 +16,7 @@
     }
     border-bottom: 0.1rem solid;
   }
-
+  
   .platforms,
   .types,
   .strategies {
@@ -25,14 +28,13 @@
   .strategies {
     justify-content: center;
 
-    .strategy {
+    li {
       @include card-styles;
       width: 30%;
     }
   }
-
   .types {
-    .type {
+    li {
       @include card-styles;
     }
   }
@@ -42,8 +44,4 @@
     width: 46.5%;
     justify-content: center;
   }
-
-  @import "./mobile/utils/styles";
-  @import "./tablet/utils/style";
-  @import "./desktop/utils/style";
 }

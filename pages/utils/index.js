@@ -1,40 +1,33 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import styles from "./styles/_.module.scss";
-import {
-  useResponsiveStore,
-  useLearnStore,
-  useSEOStore,
-  useMaintenanceStore,
-} from "../[service]/utils";
+import styles from "./style.module.scss";
+import { useServiceStores } from "../[service]/utils";
+import { useHeaderStores } from "./header/utils";
+import { useFooterStores } from "./footer/utils";
+import { useApp } from "../_app.page";
+import { useServices } from "../index.page";
 
-export * from "./header/utils";
-export * from "./footer/utils";
-export * from "../index.page";
-export * from "../_app.page";
-
-function capitalize({ text, cap }) {
+export function capitalize({ text, cap }) {
   if (typeof text !== "string" || !cap || text.toLowerCase() === "seo") {
     return text?.toLowerCase() === "seo" ? "SEO" : text;
   }
   return text.charAt(0).toUpperCase() + text.slice(1);
 }
-function getName({ service, title, cap }) {
+export function getName({ service, title, cap }) {
   return !service ? title : capitalize({ text: service, cap });
 }
-function getStyles({ service }) {
+export function getStyles({ service }) {
   return `${service ? styles.isService : styles.isHome}`;
 }
-function getQuery({ router } = {}) {
+export function getQuery({ router } = {}) {
   const { query: { service } = {} } = router !== null && router;
   return service;
 }
-
 export function getServices({ responsive, learn, seo, maintenance }) {
   return [responsive, learn, seo, maintenance].map(
     ({ price, tip, title } = {}) => (
       <Link as={`${String(title).toLowerCase()}`} href="/[service]" key={title}>
-        <li className="card">
+        <li className={styles.card}>
           <>
             <h3>
               {title}
@@ -53,8 +46,20 @@ export function getServices({ responsive, learn, seo, maintenance }) {
 
 export const useServicesStore = () => {
   const router = useRouter();
+  const {
+    useResponsiveStore,
+    useLearnStore,
+    useSEOStore,
+    useMaintenanceStore,
+  } = useServiceStores();
+  const { Footer } = useFooterStores();
+  const { Header } = useHeaderStores();
 
   return {
+    Header,
+    Footer,
+
+    styles,
     getServices: getServices({
       responsive: useResponsiveStore(),
       learn: useLearnStore(),
@@ -70,4 +75,7 @@ export const useServicesStore = () => {
     getName,
     getQuery: getQuery({ router }),
   };
+};
+export const useServicesStores = () => {
+  return { useApp, useServices };
 };

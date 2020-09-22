@@ -1,34 +1,30 @@
-import { Mobile, Tablet, Desktop } from "./utils";
+import { useResponsiveStore } from "./utils";
 
 export const useResponsive = () => {
+  const { styles } = useResponsiveStore();
+
   return (
-    <main id="responsive">
+    <main className={styles.responsive}>
       <>
-        <ul className="strategies">
+        <ul className={styles.strategies}>
           <h4>Content strategy</h4>
 
           <>
-            <li className="strategy">HTML/CSS</li>
-            <li className="strategy">ReactJS</li>
-            <li className="strategy">Web Apps</li>
+            <li>HTML/CSS</li>
+            <li>ReactJS</li>
+            <li>Web Apps</li>
           </>
         </ul>
       </>
-      <section className="platforms">
+      <section className={styles.platforms}>
         <h4>Supported across multi-platform</h4>
-
-        <>
-          <Mobile />
-          <Tablet />
-          <Desktop />
-        </>
       </section>
       <>
-        <ul className="types">
+        <ul className={styles.types}>
           <h4>Types of responsive webpage</h4>
 
-          <li className="type">Static page</li>
-          <li className="type">Dynamic page</li>
+          <li>Static page</li>
+          <li>Dynamic page</li>
         </ul>
       </>
     </main>
