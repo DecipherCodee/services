@@ -37,7 +37,7 @@ export function getServices({ responsive, learn, seo, maintenance }) {
 }
 export function setTitle({ router }) {
   return (
-    <Head id="head">
+    <Head>
       <title>
         {getName({
           service: getQuery({ router }),

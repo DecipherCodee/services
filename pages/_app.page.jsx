@@ -7,7 +7,7 @@ export const useApp = ({ Component, pageProps }) => {
   return (
     <main id="app" className={setStyle}>
       <>
-        <Head />
+        <Head id="head" />
       </>
       <Header id="header" />
       <>
