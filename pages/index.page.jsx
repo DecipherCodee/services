@@ -1,12 +1,14 @@
-import { useServicesStore } from "./utils";
+import { useStore } from "./utils";
 
 export const useServices = () => {
-  const { getServices } = useServicesStore();
+  const { Services, styles } = useStore();
 
   return (
-    <main id="services-page">
+    <main className={styles.services}>
       <>
-        <ul className="services">{getServices}</ul>
+        <ul className={styles.list}>
+          <Services />
+        </ul>
       </>
     </main>
   );

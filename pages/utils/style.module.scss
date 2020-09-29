@@ -1,0 +1,32 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.isHome {
+  justify-content: center;
+}
+.isService {
+  justify-content: unset;
+}
+
+.services {
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: {
+      top: 2rem;
+      bottom: 1rem;
+    }
+    @include set-layout($mm-max-width) {
+      flex-direction: column;
+    }
+
+  }
+}

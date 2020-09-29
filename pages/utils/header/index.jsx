@@ -1,16 +1,16 @@
 import Link from "next/link";
-import { useHeaderStore } from "./utils";
+import { useStore } from "./utils";
 
 export const useHeader = () => {
-  const { title, getService } = useHeaderStore();
+  const { title, getService, styles } = useStore();
 
   return (
-    <main id="header">
+    <main className={styles.header}>
       <>
-        <h1 className="title">{title}</h1>
+        <h1 className={styles.title}>{title}</h1>
       </>
       <Link as="" href="/">
-        <p className="sub-title">
+        <p className={styles.subTitle}>
           <code>{getService}</code>
         </p>
       </Link>

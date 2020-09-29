@@ -1,0 +1,67 @@
+@import "styles/mixins";
+
+.behaviour {
+  @mixin behaviour-styles {
+    @include card-styles;
+    @include margin-styles;
+    padding: 0 1.5rem;
+    padding-top: 0.5rem;
+    height: 4rem;
+  }
+  display: flex;
+  // flex-wrap: nowrap;
+  // flex-direction: column;
+
+  .noResponsiveLabel,
+  .responsiveLabel {
+    display: flex; // none;
+    align-items: center;
+    margin-left: 2rem;
+    width: 60%; // to 78%;
+  }
+  
+  .responsiveLabel {
+    // width: 100%;
+    // margin-bottom: 1rem;
+
+    .responsive {
+      @include behaviour-styles();
+
+      div {
+        display: flex;
+        flex-direction: column;
+
+        input {
+          align-self: flex-end;
+        }
+      }
+    }
+  }
+  .noResponsiveLabel {
+    .devices {
+      @include behaviour-styles();
+
+      
+      div {
+        display: flex;
+        // align-items: flex-end;
+        justify-content: flex-end;
+        // flex-direction: column;
+        // height: 7rem;
+
+        input {
+          // align-self: flex-end;
+          // justify-self: self-end;
+        }
+      }
+      label {
+        display: flex;
+        justify-content: center;
+
+        input {
+          margin-right: 0.8rem;
+        }
+      }
+    }
+  }
+}

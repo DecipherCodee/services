@@ -1,0 +1,21 @@
+@import "styles/mixins";
+
+.intro {
+  display: flex;
+  align-items: center;
+
+  label {
+    width: 50%;
+
+    input {
+      position: absolute;
+      top: 2rem;
+      right: 1rem;
+    }
+    fieldset {
+      @include card-styles();
+      margin: unset;
+      min-height: 28rem;
+    }
+  }
+}

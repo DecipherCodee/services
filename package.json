@@ -1,6 +1,6 @@
 {
   "name": "@deciphercode/services",
-  "version": "1.0.9",
+  "version": "1.1.1",
   "author": {
     "name": "DecipherCode",
     "email": "DecipherCode@protonmail.com"
@@ -12,11 +12,16 @@
   "repository": "git@github.com:DecipherCodee/services.git",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev -p 8900",
+    "audit": "npm audit fix",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev -p 8900",
     "lint": "eslint --ext .js,.jsx pages/",
-    "test": "jest"
+    "outdated": "npx npm-check-updates -u",
+    "set": "npm i",
+    "start": "next start",
+    "test": "jest",
+    "update": "npm update",
+    "upgrade": "sudo npm update npm -g"
   },
   "dependencies": {
     "next": "9.4.4",
