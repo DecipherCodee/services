@@ -1,17 +1,13 @@
 import "./style.scss";
-import { func, string, shape } from "prop-types";
-import Head from "next/head";
-import { useServicesStore } from "./utils";
+import { useStore } from "./utils";
 
 export const useApp = ({ Component, pageProps }) => {
-  const { setStyle, getTitle, Header, Footer } = useServicesStore();
+  const { setStyle, Header, Footer, Head } = useStore();
 
   return (
     <main id="app" className={setStyle}>
       <>
-        <Head id="head">
-          <title>{getTitle}</title>
-        </Head>
+        <Head />
       </>
       <Header id="header" />
       <>
@@ -22,9 +18,9 @@ export const useApp = ({ Component, pageProps }) => {
   );
 };
 
-useApp.propTypes = {
-  Component: func.isRequired,
-  pageProps: shape({ root: string }).isRequired,
-};
+// useApp.propTypes = {
+//   Component: func.isRequired,
+//   pageProps: shape({ root: string }).isRequired,
+// };
 
 export default useApp;

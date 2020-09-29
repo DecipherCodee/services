@@ -28,10 +28,5 @@
       flex-direction: column;
     }
 
-    .card {
-      @include card-styles();
-      flex-basis: 45%;
-      flex-direction: column;
-    }
   }
 }

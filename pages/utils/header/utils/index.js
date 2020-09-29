@@ -4,7 +4,7 @@ import styles from "./style.module.scss";
 
 const title = process.env.NEXT_PUBLIC_DECIPHERCODE_NAME;
 
-export const useHeaderStore = () => {
+export const useStore = () => {
   const { getQuery, getName } = useServicesStore();
 
   return {
@@ -15,6 +15,6 @@ export const useHeaderStore = () => {
     }),
   };
 };
-export const useHeaderStores = () => {
+export const useHeaderStore = () => {
   return { Header };
 };

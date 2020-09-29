@@ -24,7 +24,7 @@ a {
   text-decoration: none;
 }
 
-ul,
+ul,ol,
 li {
   list-style: none;
   padding: 0;
@@ -33,5 +33,10 @@ li {
 button {
   border: none;
   background: none;
+  &:focus {
+    outline: none;
+  }
 }
-
+input{
+  cursor:pointer
+}

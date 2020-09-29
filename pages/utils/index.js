@@ -1,11 +1,12 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import styles from "./style.module.scss";
-import { useServiceStores } from "../[service]/utils";
-import { useHeaderStores } from "./header/utils";
-import { useFooterStores } from "./footer/utils";
+import { useServiceStore } from "../[service]/utils";
+import { useHeaderStore } from "./header/utils";
+import { useFooterStore } from "./footer/utils";
 import { useApp } from "../_app.page";
 import { useServices } from "../index.page";
+import { Service } from "./service";
 
 export function capitalize({ text, cap }) {
   if (typeof text !== "string" || !cap || text.toLowerCase() === "seo") {
@@ -23,59 +24,61 @@ export function getQuery({ router } = {}) {
   const { query: { service } = {} } = router !== null && router;
   return service;
 }
+
 export function getServices({ responsive, learn, seo, maintenance }) {
-  return [responsive, learn, seo, maintenance].map(
-    ({ price, tip, title } = {}) => (
-      <Link as={`${String(title).toLowerCase()}`} href="/[service]" key={title}>
-        <li className={styles.card}>
-          <>
-            <h3>
-              {title}
-              &rarr;
-            </h3>
-            <p>
-              {tip}
-              {price && <code>{price}</code>}
-            </p>
-          </>
-        </li>
-      </Link>
-    )
+  return [
+    responsive,
+    learn,
+    seo,
+    maintenance,
+  ].map(({ price, tip, title } = {}) => (
+    <Service price={price} tip={tip} title={title} key={title} />
+  ));
+}
+export function setTitle({ router }) {
+  return (
+    <Head id="head">
+      <title>
+        {getName({
+          service: getQuery({ router }),
+          title: "DecipherCode",
+          cap: true,
+        })}
+      </title>
+    </Head>
   );
 }
 
-export const useServicesStore = () => {
+export const useStore = () => {
   const router = useRouter();
   const {
     useResponsiveStore,
     useLearnStore,
     useSEOStore,
     useMaintenanceStore,
-  } = useServiceStores();
-  const { Footer } = useFooterStores();
-  const { Header } = useHeaderStores();
+  } = useServiceStore();
+  const { Footer } = useFooterStore();
+  const { Header } = useHeaderStore();
 
   return {
     Header,
     Footer,
-
     styles,
-    getServices: getServices({
-      responsive: useResponsiveStore(),
-      learn: useLearnStore(),
-      seo: useSEOStore(),
-      maintenance: useMaintenanceStore(),
-    }),
-    getTitle: getName({
-      service: getQuery({ router }),
-      title: "DecipherCode",
-      cap: true,
-    }),
+    Services: () =>
+      getServices({
+        responsive: useResponsiveStore(),
+        learn: useLearnStore(),
+        seo: useSEOStore(),
+        maintenance: useMaintenanceStore(),
+      }),
+    Head: () => setTitle({ router }),
     setStyle: getStyles({ service: getQuery({ router }) }),
     getName,
     getQuery: getQuery({ router }),
   };
 };
-export const useServicesStores = () => {
-  return { useApp, useServices };
+export const useServicesStore = () => {
+  const router = useRouter();
+
+  return { getName, getQuery: getQuery({ router }), useApp, useServices };
 };

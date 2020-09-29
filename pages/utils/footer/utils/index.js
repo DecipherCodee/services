@@ -1,9 +1,9 @@
 import { Footer } from "..";
 import styles from "./style.module.scss";
 
-export const useFooterStore = () => {
+export const useStore = () => {
   return { styles };
 };
-export const useFooterStores = () => {
+export const useFooterStore = () => {
   return { Footer };
 };

@@ -17,15 +17,16 @@ function getService({ getQuery }) {
   return services[getQuery];
 }
 
-export const useServiceStore = () => {
+export const useStore = () => {
   const { getQuery } = useServicesStore();
+
   return {
-    getService: getService({ getQuery }),
-    useService,
+    Service: () => <>{getService({ getQuery })}</>,
   };
 };
-export const useServiceStores = () => {
+export const useServiceStore = () => {
   return {
+    useService,
     useLearnStore,
     useSEOStore,
     useMaintenanceStore,

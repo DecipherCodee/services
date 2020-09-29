@@ -1,9 +1,9 @@
-import { useServiceStore } from "./utils";
+import { useStore } from "./utils";
 
 export const useService = () => {
-  const { getService } = useServiceStore();
+  const { Service } = useStore();
 
-  return <>{getService}</>;
+  return <Service />;
 };
 
 export default useService;

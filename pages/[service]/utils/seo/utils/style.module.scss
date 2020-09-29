@@ -1,0 +1,10 @@
+@import "styles/mixins";
+
+.seo {
+  display: flex;
+  align-self: center;
+
+  strong {
+    margin-left: 0.4rem;
+  }
+}

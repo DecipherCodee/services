@@ -1,12 +1,12 @@
 import { shallow } from "enzyme";
-import { useServicesStores } from ".";
+import { useServicesStore } from ".";
 
 const props = { Component: jest.fn(), pageProps: {} };
 
 describe("app", () => {
   const { Component, pageProps } = props;
   const App = () => {
-    const { useApp } = useServicesStores();
+    const { useApp } = useServicesStore();
     return useApp({ Component, pageProps });
   };
 
@@ -40,7 +40,7 @@ describe("app", () => {
 
 describe("services", () => {
   const Services = () => {
-    const { useServices } = useServicesStores();
+    const { useServices } = useServicesStore();
     return useServices();
   };
 

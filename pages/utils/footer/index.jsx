@@ -1,7 +1,7 @@
-import { useFooterStore } from "./utils";
+import { useStore } from "./utils";
 
 export const useFooter = () => {
-  const { styles } = useFooterStore();
+  const { styles } = useStore();
 
   return (
     <footer className={styles.footer}>

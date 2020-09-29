@@ -1,3 +1,5 @@
+@import "styles/variables";
+
 @mixin set-layout($width) {
   @media (max-width: $width) {
     @content;
@@ -35,5 +37,33 @@
     margin: 0;
     font-size: 1.25rem;
     line-height: 1.5;
+  }
+}
+@mixin margin-styles($value: 0) {
+  margin: {
+    top: $value;
+    bottom: $value;
+  }
+}
+@mixin field-styles {
+  @include card-styles;
+  margin: 0;
+  @include margin-styles(1.8rem);
+  cursor: unset;
+  &:hover {
+    color: unset;
+    border-color: #67676b;
+  }
+}
+@mixin offContract-styles {
+  @include field-styles();
+  margin-left: 0;
+}
+@mixin no-margin-card-styles($height: 1rem) {
+  @include card-styles;
+  height: $height; // to unset
+  margin: {
+    top: 0;
+    bottom: 0;
   }
 }

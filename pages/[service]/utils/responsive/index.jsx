@@ -1,14 +1,14 @@
 import { useResponsiveStore } from "./utils";
 
+
 export const useResponsive = () => {
-  const { styles } = useResponsiveStore();
+  const { styles, Survey } = useResponsiveStore();
 
   return (
     <main className={styles.responsive}>
       <>
         <ul className={styles.strategies}>
           <h4>Content strategy</h4>
-
           <>
             <li>HTML/CSS</li>
             <li>ReactJS</li>
@@ -27,6 +27,7 @@ export const useResponsive = () => {
           <li>Dynamic page</li>
         </ul>
       </>
+      <Survey />
     </main>
   );
 };
