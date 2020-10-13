@@ -1,0 +1,28 @@
+@import "styles/mixins";
+
+.offContract {
+  display: flex;
+  flex-direction: column;
+
+  fieldset {
+    margin-top: 0;
+  }
+
+  aside {
+    display: flex;
+    justify-content: space-evenly;
+
+    .extraPagesLabel {
+      display: flex;
+      align-items: center;
+
+      input {
+        @include card-styles;
+        @include margin-styles;
+        width: 10rem;
+        height: 3rem;
+        padding: 0.1rem 1.5rem;
+      }
+    }
+  }
+}

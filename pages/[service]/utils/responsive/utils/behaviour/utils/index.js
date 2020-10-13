@@ -33,4 +33,3 @@ export const useBehaviourStore = () => {
       setNotResponsive((old) => !old);
     },
   };
-};
