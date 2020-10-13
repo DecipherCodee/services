@@ -29,10 +29,6 @@ export const useBehaviourStore = () => {
         setNotResponsive(value);
         return;
       }
-      // dispatch("survey", "setOffContract", {
-      //   name: "behaviour",
-      //   value: { nonresponsive: event.currentTarget.value },
-      // });
       setResponsive(false);
       setNotResponsive((old) => !old);
     },
