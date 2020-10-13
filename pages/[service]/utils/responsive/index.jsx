@@ -1,6 +1,5 @@
 import { useResponsiveStore } from "./utils";
 
-
 export const useResponsive = () => {
   const { styles, Survey } = useResponsiveStore();
 

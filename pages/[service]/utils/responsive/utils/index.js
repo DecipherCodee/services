@@ -1,4 +1,4 @@
-import { useSurveyStore } from "../../survey/utils";
+import { useSurveyStore } from "../../../../utils/survey/utils";
 import { useBehaviour } from "./behaviour";
 import styles from "./style.module.scss";
 

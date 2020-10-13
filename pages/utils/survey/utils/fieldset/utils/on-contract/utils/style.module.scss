@@ -1,0 +1,19 @@
+.onContract {
+  display: flex;
+  flex-direction: column;
+
+  .pack,
+  .extra {
+    display: flex;
+    align-items: center;
+  }
+  .pack {
+
+    justify-content: space-around;
+  }
+
+  .extra {
+    margin-top: 1rem;
+    justify-content: center;
+  }
+}
