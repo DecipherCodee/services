@@ -1,0 +1,26 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+
+  i {
+    text-align: center;
+    li {
+      margin-top: 0.6rem;
+    }
+  }
+
+  ol {
+    display: flex;
+    flex-direction: column;
+
+    li {
+      list-style: disc;
+      margin: {
+        left: 3rem;
+        top: 0.6rem;
+      }
+    }
+  }
+}
