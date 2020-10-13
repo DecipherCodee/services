@@ -1,0 +1,14 @@
+@import "styles/mixins";
+
+.extraPages {
+  display: flex;
+  align-items: center;
+
+  input {
+    @include card-styles;
+    @include margin-styles;
+    width: 10rem;
+    height: 3rem;
+    padding: 0.1rem 1.5rem;
+  }
+}

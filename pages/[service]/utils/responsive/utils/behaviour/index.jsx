@@ -1,21 +1,30 @@
 import { useBehaviourStore } from "./utils";
 
 export const useBehaviour = () => {
-  const { styles } = useBehaviourStore();
+  const {
+    styles,
+    isNotResponsive,
+    setNotResponsive,
+    isResponsive,
+    setResponsive,
+  } = useBehaviourStore();
 
   return (
     <main className={styles.behaviour}>
       <label className={styles.responsiveLabel} htmlFor="responsive">
         <fieldset className={styles.responsive}>
           <legend>Responsive</legend>
-          <div>
+          <main>
             <input
               id="responsive"
               type="radio"
               name="responsiveness"
               value={49.99}
+              checked={isResponsive}
+              onChange={(event) => setResponsive(null, event)}
             />
-          </div>
+            Benefits -works across mutiple devices
+          </main>
         </fieldset>
       </label>
 
@@ -23,8 +32,15 @@ export const useBehaviour = () => {
         <fieldset className={styles.devices}>
           <legend>Non-responsive</legend>
           <div>
-            <input id="non-responsive" type="radio" name="responsiveness" />
-            {false && (
+            <input
+              id="non-responsive"
+              type="radio"
+              name="responsiveness"
+              checked={isNotResponsive}
+              onChange={(event) => setNotResponsive(null, event)}
+            />
+
+            {true && (
               <>
                 <label htmlFor="mobile">
                   <input id="mobile" type="checkbox" value={15.99} />

@@ -1,0 +1,13 @@
+@import "styles/mixins";
+
+.survey {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .submitButton {
+    @include card-styles;
+    width: 18rem;
+    justify-content: center;
+  }
+}

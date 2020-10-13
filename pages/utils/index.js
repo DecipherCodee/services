@@ -8,6 +8,9 @@ import { useApp } from "../_app.page";
 import { useServices } from "../index.page";
 import { Service } from "./service";
 
+const value = {};
+const store = {};
+
 export function capitalize({ text, cap }) {
   if (typeof text !== "string" || !cap || text.toLowerCase() === "seo") {
     return text?.toLowerCase() === "seo" ? "SEO" : text;
@@ -24,7 +27,6 @@ export function getQuery({ router } = {}) {
   const { query: { service } = {} } = router !== null && router;
   return service;
 }
-
 export function getServices({ responsive, learn, seo, maintenance }) {
   return [
     responsive,
@@ -48,6 +50,28 @@ export function setTitle({ router }) {
     </Head>
   );
 }
+export function dispatch(name, type, payload = {}) {
+  const newState = store[name][type](value[name], payload);
+  value[name] = newState;
+  // console.log("\nglobal dispatching\n", value, "\n");
+}
+
+export const useGStore = ({
+  name,
+  initialValue = undefined,
+  initialDispatch,
+}) => {
+  if (initialValue === undefined) {
+    // console.log("\nnothing\n", value);
+    return [value[name], dispatch];
+  }
+
+  value[name] = initialValue;
+  store[name] = initialDispatch;
+
+  // console.log("\ninitialised store\n", value, "\n");
+  return [value[name], dispatch];
+};
 
 export const useStore = () => {
   const router = useRouter();
@@ -62,6 +86,7 @@ export const useStore = () => {
 
   return {
     Header,
+    useGStore,
     Footer,
     styles,
     Services: () =>
@@ -80,5 +105,11 @@ export const useStore = () => {
 export const useServicesStore = () => {
   const router = useRouter();
 
-  return { getName, getQuery: getQuery({ router }), useApp, useServices };
+  return {
+    getName,
+    getQuery: getQuery({ router }),
+    useApp,
+    useServices,
+    useGStore,
+  };
 };
