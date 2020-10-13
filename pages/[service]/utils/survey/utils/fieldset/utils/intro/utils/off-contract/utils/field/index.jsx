@@ -5,7 +5,6 @@ export const useOffContractField = () => {
 
   return (
     <main className={styles.field}>
-      
       <i>
         Benefits
         <li>– buy packages and addons separately</li>
